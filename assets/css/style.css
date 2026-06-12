@@ -2002,169 +2002,162 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
+
+
 /*-----------------------------------*\
-  #PIXEL ART / METROIDVANIA OVERRIDES
+  #PIXEL GAME LIGHT THEME OVERRIDES
 \*-----------------------------------*/
 
-/* ── body: starfield + scanlines ── */
+/* ── page background: sky blue with pixel clouds ── */
 body {
   background: var(--smoky-black);
   background-image:
-    radial-gradient(1px 1px at 10% 15%, hsla(240,60%,90%,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 30% 40%, hsla(240,60%,90%,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 25%, hsla(240,60%,90%,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 70% 65%, hsla(240,60%,90%,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 85% 10%, hsla(240,60%,90%,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 92% 80%, hsla(240,60%,90%,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 45% 90%, hsla(240,60%,90%,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 18% 72%, hsla(240,60%,90%,0.5) 0%, transparent 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    hsla(260, 60%, 5%, 0.18) 3px,
-    hsla(260, 60%, 5%, 0.18) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
+    radial-gradient(ellipse 60px 30px at 15% 20%, hsla(0,0%,100%,0.55) 0%, transparent 100%),
+    radial-gradient(ellipse 80px 35px at 40% 12%, hsla(0,0%,100%,0.45) 0%, transparent 100%),
+    radial-gradient(ellipse 50px 25px at 70% 18%, hsla(0,0%,100%,0.50) 0%, transparent 100%),
+    radial-gradient(ellipse 90px 40px at 85% 8%,  hsla(0,0%,100%,0.40) 0%, transparent 100%);
 }
 
 /* ── pixel selection ── */
 ::selection {
-  background: var(--amber);
-  color: var(--smoky-black);
+  background: var(--pixel-yellow);
+  color: hsl(230, 25%, 14%);
 }
-:focus { outline-color: var(--amber); }
+:focus { outline-color: var(--pixel-blue); }
 
-/* ── card / sidebar: pixel frame ── */
+/* ── cards / sidebar: bright white pixel panels ── */
 .sidebar,
 article {
-  border: 2px solid var(--pixel-border);
+  background: var(--eerie-black-2);
+  border: 3px solid var(--pixel-border);
   border-radius: 0;
-  box-shadow:
-    var(--shadow-1),
-    4px 4px 0 hsla(260, 50%, 4%, 0.8);
-  image-rendering: pixelated;
+  box-shadow: 5px 5px 0 var(--pixel-shadow);
+  color: var(--white-1);
 }
 
 .sidebar:hover,
 article:hover {
-  border-color: var(--amber);
-  box-shadow:
-    var(--shadow-1),
-    4px 4px 0 hsla(35, 100%, 30%, 0.4);
+  border-color: var(--pixel-blue);
+  box-shadow: 5px 5px 0 hsla(205, 88%, 44%, 0.2);
 }
 
-/* ── headings: Press Start 2P ── */
+/* ── heading text: dark on light ── */
+.h2, .h3, .h4, .h5 { color: var(--white-1); }
+
 .h2 {
   font-family: var(--ff-pixel);
-  font-size: 12px;
+  font-size: 22px;
+  font-weight: 700;
   letter-spacing: 1px;
-  line-height: 1.8;
-  text-transform: uppercase;
+  color: var(--white-1);
 }
 
 .h3 {
   font-family: var(--ff-pixel);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-1);
 }
 
 .h4 {
   font-family: var(--ff-pixel);
-  font-size: 9px;
-  line-height: 1.8;
+  font-size: 14px;
+  color: var(--white-1);
 }
 
-/* ── article title underline ── */
+.h5 {
+  font-family: var(--ff-pixel);
+  font-size: 13px;
+  color: var(--white-2);
+}
+
+/* ── article title underline: blue ── */
 .article-title::after {
-  background: var(--amber);
+  background: var(--pixel-blue);
   width: 100%;
-  height: 2px;
+  height: 3px;
   border-radius: 0;
 }
 
-/* ── blinking cursor on active section title ── */
+/* blinking "> " cursor */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
-
 .h2.article-title::before {
   content: "> ";
-  color: var(--amber);
+  color: var(--pixel-blue);
   animation: blink 1s steps(1) infinite;
 }
 
-/* ── name: pixel font ── */
+/* ── sidebar name ── */
 .info-content .name {
   font-family: var(--ff-pixel);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  line-height: 1.8;
-  color: var(--amber);
-  text-shadow: 0 0 12px hsla(35, 100%, 58%, 0.5);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--pixel-blue);
+  text-shadow: 2px 2px 0 hsla(205, 88%, 44%, 0.2);
 }
 
-/* ── job title: VT323 ── */
 .info-content .title {
-  font-family: var(--ff-vt323);
-  font-size: 18px;
-  letter-spacing: 2px;
-  background: transparent;
-  border: 1px solid var(--pixel-border);
+  font-family: var(--ff-pixel);
+  font-size: 11px;
+  background: var(--pixel-blue);
+  color: hsl(0, 0%, 100%);
+  border: none;
   border-radius: 0;
-  color: var(--light-gray);
+  padding: 4px 12px;
 }
 
-/* ── icon boxes: amber, no radius ── */
+/* ── icon boxes ── */
 .icon-box {
-  color: var(--amber);
-  border: 1px solid var(--pixel-border);
+  color: var(--pixel-blue);
+  background: var(--blue-dim);
+  border: 2px solid var(--pixel-border);
   border-radius: 0;
-  box-shadow: 2px 2px 0 hsla(260, 50%, 4%, 0.8);
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
 }
 
-/* ── nav links: VT323 ── */
+/* ── nav links ── */
+.navbar {
+  background: hsl(210, 35%, 87%);
+  border-top: 3px solid var(--pixel-border);
+}
+
 .navbar-link {
-  font-family: var(--ff-vt323);
-  font-size: 20px;
-  letter-spacing: 2px;
+  font-family: var(--ff-pixel);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--light-gray);
   text-transform: uppercase;
 }
 
 .navbar-link:hover,
-.navbar-link:focus { color: var(--amber); }
+.navbar-link:focus { color: var(--pixel-blue); }
 
 .navbar-link.active {
-  color: var(--amber);
-  text-shadow: 0 0 8px hsla(35, 100%, 58%, 0.6);
+  color: var(--pixel-blue);
+  text-shadow: 2px 2px 0 hsla(205, 88%, 44%, 0.15);
 }
 
-/* ── skill bars: HP bar style ── */
+/* ── HP-bar style skill bars ── */
 .skill-progress-bg {
-  background: var(--jet);
-  border: 1px solid var(--pixel-border);
+  background: var(--onyx);
+  border: 2px solid var(--pixel-border);
   border-radius: 0;
-  height: 10px;
+  height: 12px;
 }
 
 .skill-progress-fill {
-  background: var(--amber);
+  background: linear-gradient(to right, var(--pixel-green), hsl(165, 70%, 44%));
   border-radius: 0;
-  box-shadow: inset 0 -2px 0 hsla(0,0%,0%,0.3), 0 0 6px hsla(35,100%,58%,0.4);
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 -2px 0 hsla(0,0%,0%,0.15);
 }
 
-/* segmented HP bar effect */
 .skill-progress-fill::after {
   content: "";
   position: absolute;
@@ -2173,110 +2166,119 @@ article:hover {
     90deg,
     transparent,
     transparent 10px,
-    hsla(0,0%,0%,0.25) 10px,
-    hsla(0,0%,0%,0.25) 12px
+    hsla(0,0%,0%,0.12) 10px,
+    hsla(0,0%,0%,0.12) 12px
   );
 }
 
-/* ── project cards: pixel panel ── */
+/* ── project detail cards ── */
 .project-detail-card {
-  border: 2px solid var(--pixel-border);
+  background: var(--eerie-black-2);
+  border: 3px solid var(--pixel-border);
   border-radius: 0;
-  box-shadow: 4px 4px 0 hsla(260, 50%, 4%, 0.8);
+  box-shadow: 5px 5px 0 var(--pixel-shadow);
   transition: border-color var(--transition-1), box-shadow var(--transition-1);
 }
 
 .project-detail-card:hover {
-  border-color: var(--amber);
-  box-shadow: 4px 4px 0 hsla(35, 100%, 30%, 0.4);
+  border-color: var(--pixel-blue);
+  box-shadow: 5px 5px 0 hsla(205, 88%, 44%, 0.2);
 }
 
 .project-detail-title {
   font-family: var(--ff-pixel);
-  font-size: 9px;
-  line-height: 1.9;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--white-1);
 }
 
-.project-detail-link { color: var(--amber); }
+.project-detail-link {
+  color: var(--pixel-blue);
+  font-family: var(--ff-pixel);
+}
 
 .project-detail-role {
-  font-family: var(--ff-vt323);
-  font-size: 18px;
-  color: var(--amber);
-  letter-spacing: 2px;
+  font-family: var(--ff-pixel);
+  font-size: 11px;
+  color: var(--pixel-orange);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .project-detail-date {
-  font-family: var(--ff-vt323);
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
-/* ── tool tags: pixel badges ── */
-.project-detail-tools span {
-  background: var(--onyx);
-  border: 1px solid var(--pixel-border);
-  border-radius: 0;
-  font-family: var(--ff-vt323);
-  font-size: 15px;
-  letter-spacing: 1px;
+  font-family: var(--ff-pixel);
+  font-size: 11px;
   color: var(--light-gray);
-  padding: 1px 8px;
-  box-shadow: 2px 2px 0 hsla(260, 50%, 4%, 0.6);
+  white-space: nowrap;
 }
 
-.project-detail-tools span:hover {
-  border-color: var(--amber);
-  color: var(--amber);
+/* ── tool tags: colourful pixel badges ── */
+.project-detail-tools span {
+  background: var(--blue-dim);
+  border: 2px solid var(--pixel-border);
+  border-radius: 0;
+  font-family: var(--ff-pixel);
+  font-size: 11px;
+  color: var(--pixel-blue);
+  padding: 2px 8px;
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
+  font-weight: 600;
 }
 
-/* ── body text: VT323 for readability with pixel feel ── */
+.project-detail-tools span:nth-child(3n+1) { border-color: var(--pixel-blue);   color: var(--pixel-blue); }
+.project-detail-tools span:nth-child(3n+2) { border-color: var(--pixel-green);  color: var(--pixel-green); }
+.project-detail-tools span:nth-child(3n+3) { border-color: var(--pixel-purple); color: var(--pixel-purple); }
+
+/* ── body / bullet text: Nunito for readability ── */
 .project-detail-bullets li,
 .about-text p,
 .service-item-text,
 .timeline-text,
 .timeline-text li {
-  font-family: var(--ff-vt323);
-  font-size: 18px;
-  line-height: 1.7;
-  letter-spacing: 0.5px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--light-gray);
 }
 
 /* ── service cards ── */
 .service-item {
-  border: 2px solid var(--pixel-border);
+  background: var(--eerie-black-2);
+  border: 3px solid var(--pixel-border);
   border-radius: 0;
-  box-shadow: 4px 4px 0 hsla(260, 50%, 4%, 0.8);
-  transition: border-color var(--transition-1);
+  box-shadow: 4px 4px 0 var(--pixel-shadow);
+  transition: border-color var(--transition-1), box-shadow var(--transition-1);
 }
 
 .service-item:hover {
-  border-color: var(--amber);
-  box-shadow: 4px 4px 0 hsla(35, 100%, 30%, 0.4);
+  border-color: var(--pixel-orange);
+  box-shadow: 4px 4px 0 hsla(25, 100%, 52%, 0.2);
 }
 
 .service-item-title {
   font-family: var(--ff-pixel);
-  font-size: 8px;
-  line-height: 1.9;
-  color: var(--amber);
+  font-size: 13px;
+  color: var(--pixel-orange);
+  font-weight: 700;
 }
 
-/* ── download CV: pixel button ── */
+/* ── download CV button ── */
 .resume-download-btn {
-  background: transparent !important;
-  color: var(--amber) !important;
-  border: 2px solid var(--amber) !important;
+  background: var(--pixel-blue) !important;
+  color: hsl(0, 0%, 100%) !important;
+  border: 3px solid hsl(205, 88%, 34%) !important;
   border-radius: 0 !important;
   font-family: var(--ff-pixel) !important;
-  font-size: 8px !important;
-  box-shadow: 3px 3px 0 hsla(260, 50%, 4%, 0.8) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  box-shadow: 4px 4px 0 var(--pixel-shadow) !important;
   transition: background var(--transition-1), box-shadow var(--transition-1) !important;
 }
 
 .resume-download-btn:hover {
-  background: var(--amber-dim) !important;
-  box-shadow: 2px 2px 0 hsla(260, 50%, 4%, 0.8) !important;
+  background: hsl(205, 88%, 38%) !important;
+  box-shadow: 2px 2px 0 var(--pixel-shadow) !important;
 }
 
 .resume-download-wrapper {
@@ -2290,21 +2292,20 @@ article:hover {
   .resume-download-wrapper { justify-content: center; }
 }
 
-/* ── separator: pixel line ── */
+/* ── separator ── */
 .separator {
   background: var(--pixel-border);
-  height: 2px;
+  height: 3px;
 }
 
 /* ── contact social cards ── */
 .contact-social { padding: 10px 0; }
 
 .contact-social-text {
-  font-family: var(--ff-vt323);
-  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
   color: var(--light-gray);
   margin-bottom: 20px;
-  letter-spacing: 1px;
 }
 
 .contact-social-list {
@@ -2318,64 +2319,76 @@ article:hover {
   align-items: center;
   gap: 18px;
   padding: 14px 18px;
-  background: var(--eerie-black-1);
-  border: 2px solid var(--pixel-border);
+  background: var(--eerie-black-2);
+  border: 3px solid var(--pixel-border);
   border-radius: 0;
   color: var(--light-gray);
-  box-shadow: 4px 4px 0 hsla(260, 50%, 4%, 0.8);
-  transition: border-color var(--transition-1), color var(--transition-1);
+  box-shadow: 4px 4px 0 var(--pixel-shadow);
+  transition: border-color var(--transition-1), box-shadow var(--transition-1);
 }
 
+.contact-social-card:nth-child(1) { border-left: 6px solid var(--pixel-blue); }
+.contact-social-card:nth-child(2) { border-left: 6px solid hsl(210, 80%, 45%); }
+.contact-social-card:nth-child(3) { border-left: 6px solid var(--pixel-orange); }
+.contact-social-card:nth-child(4) { border-left: 6px solid var(--pixel-purple); }
+.contact-social-card:nth-child(5) { border-left: 6px solid var(--pixel-green); }
+
 .contact-social-card:hover {
-  border-color: var(--amber);
+  box-shadow: 2px 2px 0 var(--pixel-shadow);
   color: var(--white-1);
-  box-shadow: 4px 4px 0 hsla(35, 100%, 30%, 0.4);
 }
 
 .contact-social-card ion-icon {
-  font-size: 24px;
-  color: var(--amber);
+  font-size: 26px;
+  color: var(--pixel-blue);
   flex-shrink: 0;
 }
 
+.contact-social-card:nth-child(3) ion-icon { color: var(--pixel-orange); }
+.contact-social-card:nth-child(4) ion-icon { color: var(--pixel-purple); }
+.contact-social-card:nth-child(5) ion-icon { color: var(--pixel-green); }
+
 .contact-social-platform {
   font-family: var(--ff-pixel);
-  font-size: 8px;
-  color: var(--amber);
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  line-height: 1.8;
+  font-size: 12px;
+  color: var(--white-1);
+  margin-bottom: 4px;
+  font-weight: 700;
 }
 
 .contact-social-card span {
-  font-family: var(--ff-vt323);
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: var(--light-gray-70);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--light-gray);
 }
 
 /* ── content card ── */
 .content-card {
-  border: 2px solid var(--pixel-border);
+  background: var(--eerie-black-2);
+  border: 3px solid var(--pixel-border);
   border-radius: 0;
 }
 
 /* ── scrollbar ── */
 .has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--amber);
+  background: var(--pixel-blue);
   border-radius: 0;
 }
 
-/* ── timeline title: pixel font ── */
+/* ── timeline item title ── */
 .timeline-item-title {
   font-family: var(--ff-pixel);
-  font-size: 8px;
-  line-height: 1.9;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--white-1);
 }
 
-/* ── skills label ── */
-.h5 {
-  font-family: var(--ff-vt323);
-  font-size: 17px;
-  letter-spacing: 1px;
+/* ── contact item links ── */
+.contact-link, address {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--light-gray);
 }
+
+/* ── social links ── */
+.social-link:hover { color: var(--pixel-blue); }
