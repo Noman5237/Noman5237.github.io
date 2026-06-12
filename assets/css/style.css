@@ -843,6 +843,8 @@ main {
   background: var(--text-gradient-yellow);
   height: 100%;
   border-radius: inherit;
+  width: 0%;
+  transition: width 1.4s steps(20, end);
 }
 
 
