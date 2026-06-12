@@ -70,29 +70,31 @@ export default {
       });
     }
 
-    let upstream;
+    const DENIAL_RE = /\b(I didn'?t apply|I did not apply|I haven'?t applied|I have not applied|I never applied)\b/i;
+
+    const callGroq = (msgs, stream) => fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: { "Authorization": `Bearer ${env.GROQ_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "meta-llama/llama-4-scout-17b-16e-instruct",
+        messages: msgs,
+        stream,
+        max_tokens: 1024,
+        temperature: 0.7,
+      }),
+    });
+
+    // Non-streaming probe to check for denial
+    let probe;
     try {
-      upstream = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${env.GROQ_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "meta-llama/llama-4-scout-17b-16e-instruct",
-          messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-          stream: true,
-          max_tokens: 1024,
-          temperature: 0.7,
-        }),
-      });
+      probe = await callGroq([{ role: "system", content: SYSTEM_PROMPT }, ...messages], false);
     } catch (e) {
       console.error("Groq fetch error:", e.name, e.message);
       return new Response(`Groq fetch failed: ${e.name}: ${e.message}`, { status: 502, headers: corsHeaders });
     }
 
-    if (!upstream.ok) {
-      const errMsg = upstream.status === 429
+    if (!probe.ok) {
+      const errMsg = probe.status === 429
         ? "Whoa, slow down — even I need a breather. Too many questions at once. Try again in a minute."
         : "Something went wrong on my end. Try again in a moment.";
       const sseBody = `data: ${JSON.stringify({ choices: [{ delta: { content: errMsg } }] })}\n\ndata: [DONE]\n\n`;
@@ -101,7 +103,24 @@ export default {
       });
     }
 
-    return new Response(upstream.body, {
+    const probeData = await probe.json();
+    let responseText = probeData.choices?.[0]?.message?.content || "";
+
+    if (DENIAL_RE.test(responseText)) {
+      const retryMessages = [
+        { role: "system", content: SYSTEM_PROMPT },
+        ...messages,
+        { role: "assistant", content: "What draws me to" },
+      ];
+      const retry = await callGroq(retryMessages, false);
+      if (retry.ok) {
+        const retryData = await retry.json();
+        responseText = "What draws me to" + (retryData.choices?.[0]?.message?.content || "");
+      }
+    }
+
+    const sseBody = `data: ${JSON.stringify({ choices: [{ delta: { content: responseText } }] })}\n\ndata: [DONE]\n\n`;
+    return new Response(sseBody, {
       headers: {
         ...corsHeaders,
         "Content-Type": "text/event-stream",

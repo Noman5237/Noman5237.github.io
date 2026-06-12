@@ -91,24 +91,28 @@ const server = createServer(async (req, res) => {
     return;
   }
 
-  const upstream = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${GROQ_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'meta-llama/llama-4-scout-17b-16e-instruct',
-      messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
-      stream: true,
-      max_tokens: 1024,
-      temperature: 0.7,
-    }),
-  });
+  const DENIAL_RE = /\b(I didn'?t apply|I did not apply|I haven'?t applied|I have not applied|I never applied)\b/i;
 
-  console.log(`[upstream] status=${upstream.status}`);
-  if (!upstream.ok) {
-    const errMsg = upstream.status === 429
+  async function callGroq(msgs, stream) {
+    return fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+        messages: msgs,
+        stream,
+        max_tokens: 1024,
+        temperature: 0.7,
+      }),
+    });
+  }
+
+  // First: non-streaming call to check for denial
+  const probe = await callGroq([{ role: 'system', content: SYSTEM_PROMPT }, ...messages], false);
+  console.log(`[upstream] status=${probe.status}`);
+
+  if (!probe.ok) {
+    const errMsg = probe.status === 429
       ? "Whoa, slow down — even I need a breather. Too many questions at once. Try again in a minute."
       : "Something went wrong on my end. Try again in a moment.";
     res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive' });
@@ -118,16 +122,31 @@ const server = createServer(async (req, res) => {
     return;
   }
 
+  const probeData = await probe.json();
+  let responseText = probeData.choices?.[0]?.message?.content || '';
+
+  if (DENIAL_RE.test(responseText)) {
+    console.log('[upstream] denial detected — retrying with prefill');
+    const retryMessages = [
+      { role: 'system', content: SYSTEM_PROMPT },
+      ...messages,
+      { role: 'assistant', content: "What draws me to" },
+    ];
+    const retry = await callGroq(retryMessages, false);
+    if (retry.ok) {
+      const retryData = await retry.json();
+      responseText = "What draws me to" + (retryData.choices?.[0]?.message?.content || '');
+    }
+  }
+
   res.writeHead(200, {
     ...CORS_HEADERS,
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache',
     'Connection': 'keep-alive',
   });
-
-  for await (const chunk of upstream.body) {
-    res.write(chunk);
-  }
+  res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: responseText } }] })}\n\n`);
+  res.write('data: [DONE]\n\n');
   res.end();
 });
 
