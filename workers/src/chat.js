@@ -93,7 +93,7 @@ export default {
 
     if (!upstream.ok) {
       const errMsg = upstream.status === 429
-        ? "Whoa, slow down — even I need a breather. Groq's rate limit caught up with us. Try again in a minute."
+        ? "Whoa, slow down — even I need a breather. Too many questions at once. Try again in a minute."
         : "Something went wrong on my end. Try again in a moment.";
       const sseBody = `data: ${JSON.stringify({ choices: [{ delta: { content: errMsg } }] })}\n\ndata: [DONE]\n\n`;
       return new Response(sseBody, {

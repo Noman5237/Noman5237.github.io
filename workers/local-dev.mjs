@@ -107,7 +107,7 @@ const server = createServer(async (req, res) => {
 
   if (!upstream.ok) {
     const errMsg = upstream.status === 429
-      ? "Whoa, slow down — even I need a breather. Groq's rate limit caught up with us. Try again in a minute."
+      ? "Whoa, slow down — even I need a breather. Too many questions at once. Try again in a minute."
       : "Something went wrong on my end. Try again in a moment.";
     res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive' });
     res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: errMsg } }] })}\n\n`);
