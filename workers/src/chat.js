@@ -110,12 +110,12 @@ export default {
       const retryMessages = [
         { role: "system", content: SYSTEM_PROMPT },
         ...messages,
-        { role: "assistant", content: "What draws me to" },
+        { role: "assistant", content: "Honestly, a company operating at that scale is hard to ignore —" },
       ];
       const retry = await callGroq(retryMessages, false);
       if (retry.ok) {
         const retryData = await retry.json();
-        responseText = "What draws me to" + (retryData.choices?.[0]?.message?.content || "");
+        responseText = "Honestly, a company operating at that scale is hard to ignore —" + (retryData.choices?.[0]?.message?.content || "");
       }
     }
 
