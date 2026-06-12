@@ -160,7 +160,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
-        if (pages[i].dataset.page === "experience") animateSkillBars();
+        if (pages[i].dataset.page === "experience") {
+          requestAnimationFrame(() => requestAnimationFrame(animateSkillBars));
+        }
       } else {
         pages[i].classList.remove("active");
         navigationLinks[i].classList.remove("active");
