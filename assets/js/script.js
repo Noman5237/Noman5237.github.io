@@ -132,6 +132,25 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// level-up timeline nodes
+const expNodes = document.querySelectorAll(".lvl-node");
+
+function animateExpNodes() {
+  expNodes.forEach((node, i) => {
+    node.classList.remove("lvl-enter");
+    node.offsetHeight;
+    node.style.animationDelay = (i * 140) + "ms";
+    node.classList.add("lvl-enter");
+  });
+}
+
+function resetExpNodes() {
+  expNodes.forEach(node => {
+    node.classList.remove("lvl-enter");
+    node.style.animationDelay = "";
+  });
+}
+
 // skill bar animation
 const skillBars = document.querySelectorAll(".skill-progress-fill");
 
@@ -280,15 +299,17 @@ function switchPage(targetPage) {
       pages[i].classList.add("active");
       navigationLinks[i].classList.add("active");
       window.scrollTo(0, 0);
-      if (pages[i].dataset.page === "skills")   requestAnimationFrame(() => requestAnimationFrame(animateSkillBars));
-      if (pages[i].dataset.page === "projects") requestAnimationFrame(() => requestAnimationFrame(animateProjectCards));
-      if (pages[i].dataset.page === "contact")  requestAnimationFrame(() => requestAnimationFrame(animateContactCards));
+      if (pages[i].dataset.page === "experience") requestAnimationFrame(() => requestAnimationFrame(animateExpNodes));
+      if (pages[i].dataset.page === "skills")    requestAnimationFrame(() => requestAnimationFrame(animateSkillBars));
+      if (pages[i].dataset.page === "projects")  requestAnimationFrame(() => requestAnimationFrame(animateProjectCards));
+      if (pages[i].dataset.page === "contact")   requestAnimationFrame(() => requestAnimationFrame(animateContactCards));
     } else {
       pages[i].classList.remove("active");
       navigationLinks[i].classList.remove("active");
-      if (pages[i].dataset.page === "skills")   resetSkillBars();
-      if (pages[i].dataset.page === "projects") resetProjectCards();
-      if (pages[i].dataset.page === "contact")  resetContactCards();
+      if (pages[i].dataset.page === "experience") resetExpNodes();
+      if (pages[i].dataset.page === "skills")     resetSkillBars();
+      if (pages[i].dataset.page === "projects")   resetProjectCards();
+      if (pages[i].dataset.page === "contact")    resetContactCards();
     }
   }
 }
