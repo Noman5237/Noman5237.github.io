@@ -1,43 +1,29 @@
-# vCard - Personal portfolio
+# Md Abdullah Al Noman — Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+Personal portfolio website for **Md Abdullah Al Noman**, Senior Software Engineer specializing in Platform Engineering, DevOps, and Cloud Infrastructure.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+Built with vanilla HTML, CSS, and JavaScript. Deployed via GitHub Pages.
 
-## Demo
+## Branches
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+| Branch | Theme |
+|---|---|
+| `master` | Original base |
+| `cyberpunk` | Electric cyan / neon purple, Orbitron font, glow effects |
+| `minimal-dark` | Indigo accent, clean grey borders, Linear/Vercel style |
+| `pixel-art` | Pixelify Sans, sky-blue light theme, pixel game aesthetic |
 
-## Prerequisites
+## Stack
 
-Before you begin, ensure you have met the following requirements:
-
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-## Installing vCard
-
-To install **vCard**, follow these steps:
-
-Linux and macOS:
-
-```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
-
-Windows:
-
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+- HTML5 / CSS3 / Vanilla JS
+- [Ionicons](https://ionic.io/ionicons) for icons
+- [Google Fonts](https://fonts.google.com) — Pixelify Sans, Nunito
 
 ## Contact
 
-If you want to contact me you can reach me at [Twitter](https://www.x.com/codewithsadee_).
+- Email: [anonyman637@gmail.com](mailto:anonyman637@gmail.com)
+- LinkedIn: [linkedin.com/in/noman5237](https://www.linkedin.com/in/noman5237/)
+- GitHub: [github.com/Noman5237](https://github.com/Noman5237)
 
 ## License
 
