@@ -2361,3 +2361,238 @@ article:hover {
 
 /* ── social links ── */
 .social-link:hover { color: var(--pixel-blue); }
+
+
+/* ── effect 8: scroll reveals ── */
+.about-text p,
+.service-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.about-text p.revealed,
+.service-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── effect 9: project tool tag pop-in ── */
+@keyframes tagPop {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.project-detail-card .project-detail-tools span {
+  opacity: 0;
+}
+
+.project-detail-card .project-detail-tools span.tag-pop {
+  animation: tagPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── effect 10: pixel wipe ── */
+#pixel-wipe {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.pw-block {
+  background: var(--pixel-blue);
+  opacity: 0;
+  transition: opacity 0ms;
+}
+
+.pw-block.pw-in {
+  opacity: 1;
+}
+
+/* ── effect 4: service icon bounce on hover ── */
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  40%       { transform: translateY(-10px); }
+  70%       { transform: translateY(-5px); }
+}
+
+.service-item:hover .service-icon-box img {
+  animation: iconBounce 0.55s ease-in-out infinite;
+}
+
+/* ── effect 5: contact cards slide in from left ── */
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-social-item {
+  opacity: 0;
+}
+
+.contact-social-item.card-enter {
+  animation: slideFromLeft 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* ── effect 6: nav active indicator ── */
+.navbar-link {
+  position: relative;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--pixel-blue);
+  transition: width 0.2s ease;
+}
+
+.navbar-link.active::after,
+.navbar-link:hover::after {
+  width: 70%;
+}
+
+/* ── effect 7: avatar idle float ── */
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+.avatar-box img {
+  animation: avatarFloat 3s ease-in-out infinite;
+}
+
+/* ── project card stagger entrance ── */
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-detail-card {
+  opacity: 0;
+}
+
+.project-detail-card.card-enter {
+  animation: cardSlideUp 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* ── skills page ── */
+.skills-grid-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0;
+}
+
+@media (min-width: 580px) {
+  .skills-grid-section { grid-template-columns: repeat(2, 1fr); }
+}
+
+.skill-category-card {
+  background: var(--eerie-black-2);
+  border: 2px solid var(--pixel-border);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 var(--pixel-border);
+  padding: 16px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.skill-category-card:hover {
+  border-color: var(--pixel-blue);
+  box-shadow: 4px 4px 0 hsla(205, 88%, 44%, 0.25);
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.skill-category-header ion-icon {
+  font-size: 22px;
+  color: var(--pixel-blue);
+  flex-shrink: 0;
+}
+
+.skill-category-card:nth-child(2n) .skill-category-header ion-icon { color: var(--pixel-green); }
+.skill-category-card:nth-child(3n) .skill-category-header ion-icon { color: var(--pixel-purple); }
+.skill-category-card:nth-child(4n) .skill-category-header ion-icon { color: var(--pixel-orange); }
+
+.skill-category-title {
+  font-family: var(--ff-pixel);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white-1);
+  letter-spacing: 0.5px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tags span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border: 2px solid var(--pixel-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--pixel-blue);
+  letter-spacing: 0.3px;
+}
+
+.skill-tags span:nth-child(3n+1) { border-color: var(--pixel-blue);   color: var(--pixel-blue); }
+.skill-tags span:nth-child(3n+2) { border-color: var(--pixel-green);  color: var(--pixel-green); }
+.skill-tags span:nth-child(3n+3) { border-color: var(--pixel-purple); color: var(--pixel-purple); }
+
+.skill-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skill-bar-label {
+  font-family: var(--ff-pixel);
+  font-size: 10px;
+  color: var(--light-gray);
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.skill-bar-row .skill-progress-bg {
+  flex: 1;
+  height: 10px;
+}
+
+.skill-bar-pct {
+  font-family: var(--ff-pixel);
+  font-size: 10px;
+  color: var(--pixel-green);
+  flex-shrink: 0;
+  min-width: 30px;
+  text-align: right;
+}

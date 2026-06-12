@@ -2,6 +2,7 @@
 
 
 
+
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
@@ -135,40 +136,138 @@ const pages = document.querySelectorAll("[data-page]");
 const skillBars = document.querySelectorAll(".skill-progress-fill");
 
 function animateSkillBars() {
-  skillBars.forEach(bar => {
-    bar.style.width = bar.dataset.width + "%";
-  });
+  skillBars.forEach(bar => { bar.style.width = bar.dataset.width + "%"; });
 }
 
 function resetSkillBars() {
   skillBars.forEach(bar => {
     bar.style.transition = "none";
     bar.style.width = "0%";
-    // re-enable transition after reset so next trigger animates
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      bar.style.transition = "";
-    }));
+    requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.transition = ""; }));
   });
 }
 
-// add event to all nav link
+// project cards + tag pop (effect 9)
+const projectCards = document.querySelectorAll(".project-detail-card");
+
+function animateProjectCards() {
+  projectCards.forEach((card, i) => {
+    const cardDelay = i * 80;
+    card.classList.remove("card-enter");
+    card.offsetHeight;
+    card.style.animationDelay = cardDelay + "ms";
+    card.classList.add("card-enter");
+
+    card.querySelectorAll(".project-detail-tools span").forEach((tag, j) => {
+      tag.classList.remove("tag-pop");
+      tag.style.animationDelay = (cardDelay + 180 + j * 28) + "ms";
+      tag.classList.add("tag-pop");
+    });
+  });
+}
+
+function resetProjectCards() {
+  projectCards.forEach(card => {
+    card.classList.remove("card-enter");
+    card.style.animationDelay = "";
+    card.querySelectorAll(".project-detail-tools span").forEach(tag => {
+      tag.classList.remove("tag-pop");
+      tag.style.animationDelay = "";
+    });
+  });
+}
+
+// contact cards slide-in
+const contactItems = document.querySelectorAll(".contact-social-item");
+
+function animateContactCards() {
+  contactItems.forEach((item, i) => {
+    item.classList.remove("card-enter");
+    item.offsetHeight;
+    item.style.animationDelay = (i * 100) + "ms";
+    item.classList.add("card-enter");
+  });
+}
+
+function resetContactCards() {
+  contactItems.forEach(item => {
+    item.classList.remove("card-enter");
+    item.style.animationDelay = "";
+  });
+}
+
+// ── effect 10: pixel wipe ──
+const PW_COLS = 8, PW_ROWS = 5, PW_STAGGER = 22;
+const wipeEl = document.createElement("div");
+wipeEl.id = "pixel-wipe";
+document.body.appendChild(wipeEl);
+for (let r = 0; r < PW_ROWS; r++) {
+  for (let c = 0; c < PW_COLS; c++) {
+    const b = document.createElement("div");
+    b.className = "pw-block";
+    b.dataset.d = r + c;
+    wipeEl.appendChild(b);
+  }
+}
+const pwBlocks = wipeEl.querySelectorAll(".pw-block");
+const pwMaxD = (PW_ROWS - 1) + (PW_COLS - 1);
+const pwDuration = pwMaxD * PW_STAGGER + 50;
+let isWiping = false;
+
+function pixelWipeTransition(callback) {
+  if (isWiping) return;
+  isWiping = true;
+  pwBlocks.forEach(b => {
+    b.style.transitionDelay = (parseInt(b.dataset.d) * PW_STAGGER) + "ms";
+    b.classList.add("pw-in");
+  });
+  setTimeout(() => {
+    callback();
+    pwBlocks.forEach(b => {
+      b.style.transitionDelay = ((pwMaxD - parseInt(b.dataset.d)) * PW_STAGGER) + "ms";
+      b.classList.remove("pw-in");
+    });
+    setTimeout(() => { isWiping = false; }, pwDuration);
+  }, pwDuration);
+}
+
+// ── effect 8: scroll reveals on about page ──
+const revealEls = document.querySelectorAll(".about-text p, .service-item");
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("revealed");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach((el, i) => {
+  el.style.transitionDelay = (i * 80) + "ms";
+  revealObserver.observe(el);
+});
+
+// nav: extracted page switch + wipe wrapper
+function switchPage(targetPage) {
+  for (let i = 0; i < pages.length; i++) {
+    if (targetPage === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+      window.scrollTo(0, 0);
+      if (pages[i].dataset.page === "skills")   requestAnimationFrame(() => requestAnimationFrame(animateSkillBars));
+      if (pages[i].dataset.page === "projects") requestAnimationFrame(() => requestAnimationFrame(animateProjectCards));
+      if (pages[i].dataset.page === "contact")  requestAnimationFrame(() => requestAnimationFrame(animateContactCards));
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+      if (pages[i].dataset.page === "skills")   resetSkillBars();
+      if (pages[i].dataset.page === "projects") resetProjectCards();
+      if (pages[i].dataset.page === "contact")  resetContactCards();
+    }
+  }
+}
+
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-        if (pages[i].dataset.page === "experience") {
-          requestAnimationFrame(() => requestAnimationFrame(animateSkillBars));
-        }
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-        if (pages[i].dataset.page === "experience") resetSkillBars();
-      }
-    }
-
+    pixelWipeTransition(() => switchPage(this.innerHTML.toLowerCase()));
   });
 }

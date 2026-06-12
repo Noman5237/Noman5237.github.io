@@ -112,6 +112,10 @@
           </li>
 
           <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Skills</button>
+          </li>
+
+          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Projects</button>
           </li>
 
@@ -314,73 +318,197 @@
 
         </section>
 
-        <section class="skill">
+      </article>
 
-          <h3 class="h3 skills-title">My skills</h3>
 
-          <ul class="skills-list content-card">
+      <!--
+        - #SKILLS
+      -->
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Kubernetes &amp; Cloud (AWS / GCP)</h5>
-                <data value="90">90%</data>
-              </div>
+      <article class="skills-page" data-page="skills">
+
+        <header>
+          <h2 class="h2 article-title">Skills</h2>
+        </header>
+
+        <section class="skills-grid-section">
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="cloud-outline"></ion-icon>
+              <h3 class="skill-category-title">Cloud Platforms</h3>
+            </div>
+            <div class="skill-tags">
+              <span>AWS</span><span>GCP</span><span>Azure</span><span>Huawei Cloud</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="90" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="70" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">70%</span>
+            </div>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">CI/CD &amp; GitOps (Flux v2, Jenkins, Argo)</h5>
-                <data value="90">90%</data>
-              </div>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="cube-outline"></ion-icon>
+              <h3 class="skill-category-title">Container Orchestration</h3>
+            </div>
+            <div class="skill-tags">
+              <span>Kubernetes</span><span>Helm</span><span>Kustomize</span><span>Flux v2</span>
+              <span>Karpenter</span><span>Docker</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="90" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="72" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">72%</span>
+            </div>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Infrastructure as Code (CDK, Terraform)</h5>
-                <data value="85">85%</data>
-              </div>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="git-branch-outline"></ion-icon>
+              <h3 class="skill-category-title">CI/CD &amp; GitOps</h3>
+            </div>
+            <div class="skill-tags">
+              <span>Jenkins</span><span>Argo Workflows</span><span>Fastlane</span><span>Buildpack</span>
+              <span>Gitea</span><span>JFrog Artifactory</span><span>GitHub Actions</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="85" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="68" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">68%</span>
+            </div>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Observability &amp; SLO Management</h5>
-                <data value="85">85%</data>
-              </div>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="code-slash-outline"></ion-icon>
+              <h3 class="skill-category-title">Infrastructure as Code</h3>
+            </div>
+            <div class="skill-tags">
+              <span>AWS CDK</span><span>Terraform</span><span>CloudFormation</span><span>Ansible</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="85" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="65" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">65%</span>
+            </div>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">DevSecOps (Vault, Keycloak, Trivy)</h5>
-                <data value="80">80%</data>
-              </div>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="eye-outline"></ion-icon>
+              <h3 class="skill-category-title">Observability &amp; SRE</h3>
+            </div>
+            <div class="skill-tags">
+              <span>OpenTelemetry</span><span>Prometheus</span><span>Grafana Loki</span><span>Grafana Tempo</span>
+              <span>CloudWatch</span><span>PMM</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="80" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="67" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">67%</span>
+            </div>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Programming (Java, Python, Bash)</h5>
-                <data value="75">75%</data>
-              </div>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              <h3 class="skill-category-title">Security &amp; Access</h3>
+            </div>
+            <div class="skill-tags">
+              <span>HashiCorp Vault</span><span>Keycloak</span><span>Boundary</span>
+              <span>Trivy</span><span>Harbor</span><span>SonarQube</span><span>ModSecurity</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" data-width="75" style="width: 0%;"></div>
+                <div class="skill-progress-fill" data-width="62" style="width:0%"></div>
               </div>
-            </li>
+              <span class="skill-bar-pct">62%</span>
+            </div>
+          </div>
 
-          </ul>
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="wifi-outline"></ion-icon>
+              <h3 class="skill-category-title">Networking &amp; Ingress</h3>
+            </div>
+            <div class="skill-tags">
+              <span>Cilium</span><span>Calico</span><span>NGINX</span><span>APISIX</span>
+              <span>ModSecurity WAF</span><span>ALB</span><span>NAT Gateway</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" data-width="58" style="width:0%"></div>
+              </div>
+              <span class="skill-bar-pct">58%</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="server-outline"></ion-icon>
+              <h3 class="skill-category-title">Data &amp; Messaging</h3>
+            </div>
+            <div class="skill-tags">
+              <span>PostgreSQL</span><span>Patroni</span><span>Strimzi Kafka</span><span>Debezium</span>
+              <span>Redis</span><span>MinIO</span><span>MongoDB</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" data-width="55" style="width:0%"></div>
+              </div>
+              <span class="skill-bar-pct">55%</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="terminal-outline"></ion-icon>
+              <h3 class="skill-category-title">Programming Languages</h3>
+            </div>
+            <div class="skill-tags">
+              <span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span>
+              <span>C</span><span>SQL</span><span>Bash</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" data-width="60" style="width:0%"></div>
+              </div>
+              <span class="skill-bar-pct">60%</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <ion-icon name="layers-outline"></ion-icon>
+              <h3 class="skill-category-title">Application Frameworks</h3>
+            </div>
+            <div class="skill-tags">
+              <span>Spring Boot</span><span>React</span><span>Node.js</span>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Proficiency</span>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" data-width="50" style="width:0%"></div>
+              </div>
+              <span class="skill-bar-pct">50%</span>
+            </div>
+          </div>
 
         </section>
 
