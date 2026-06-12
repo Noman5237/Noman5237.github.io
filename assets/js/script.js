@@ -1,5 +1,7 @@
 'use strict';
 
+import { marked } from 'marked';
+
 
 
 
@@ -278,7 +280,7 @@ function pixelWipeTransition(callback) {
 }
 
 // ── effect 8: scroll reveals on about page ──
-const revealEls = document.querySelectorAll(".about-text p, .service-item");
+const revealEls = document.querySelectorAll(".about-text p, .service-item, .about-chat-fake-input");
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -319,3 +321,143 @@ for (let i = 0; i < navigationLinks.length; i++) {
     pixelWipeTransition(() => switchPage(this.innerHTML.toLowerCase()));
   });
 }
+
+
+
+// ── Chat Modal ──
+const chatModal     = document.getElementById("chatModal");
+const chatModalClose = document.getElementById("chatModalClose");
+const sidebarChatBtn = document.getElementById("sidebarChatBtn");
+const aboutChatTrigger = document.getElementById("aboutChatTrigger");
+
+function openChatModal() {
+  chatModal.classList.add("active");
+  document.getElementById("chatInput").focus();
+}
+
+function closeChatModal() {
+  chatModal.classList.remove("active");
+}
+
+sidebarChatBtn.addEventListener("click", openChatModal);
+aboutChatTrigger.addEventListener("click", openChatModal);
+chatModalClose.addEventListener("click", closeChatModal);
+chatModal.addEventListener("click", e => { if (e.target === chatModal) closeChatModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeChatModal(); });
+
+// ── Chat Widget ──
+const CHAT_WORKER_URL = "http://localhost:8788/chat";
+
+(function initChat() {
+  const messagesEl = document.getElementById("chatMessages");
+  const inputEl    = document.getElementById("chatInput");
+  const sendBtn    = document.getElementById("chatSend");
+  if (!messagesEl || !inputEl || !sendBtn) return;
+
+  const MAX_USER_MSGS  = 20;
+  const CONTEXT_WINDOW = 8;
+  const SESSION_KEY    = "noman_chat_count";
+
+  let chatHistory = [];
+  let isStreaming  = false;
+
+  function getCount()  { return parseInt(sessionStorage.getItem(SESSION_KEY) || "0", 10); }
+  function bumpCount() { const n = getCount() + 1; sessionStorage.setItem(SESSION_KEY, n); return n; }
+
+  function lockChat() {
+    inputEl.disabled    = true;
+    sendBtn.disabled    = true;
+    inputEl.placeholder = "> session limit reached";
+  }
+
+  // restore locked state if user re-opens modal in same session
+  if (getCount() >= MAX_USER_MSGS) lockChat();
+
+  inputEl.addEventListener("input", () => {
+    sendBtn.disabled = inputEl.value.trim() === "" || isStreaming;
+  });
+
+  inputEl.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !sendBtn.disabled) handleSend();
+  });
+
+  sendBtn.addEventListener("click", handleSend);
+
+  function appendMsg(role, html) {
+    const wrap  = document.createElement("div");
+    wrap.className = `msg msg-${role}`;
+    const inner = document.createElement("div");
+    inner.className = "msg-content";
+    inner.innerHTML = html;
+    wrap.appendChild(inner);
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return inner;
+  }
+
+  async function handleSend() {
+    const text = inputEl.value.trim();
+    if (!text || isStreaming) return;
+
+    inputEl.value = "";
+    sendBtn.disabled = true;
+    isStreaming = true;
+
+    const count = bumpCount();
+
+    chatHistory.push({ role: "user", content: text });
+    appendMsg("user", marked.parse(text));
+
+    const contentEl = appendMsg("assistant", "");
+    contentEl.classList.add("streaming");
+
+    let full = "";
+    try {
+      const res = await fetch(CHAT_WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: chatHistory.slice(-CONTEXT_WINDOW) }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const reader  = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop();
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const payload = line.slice(6).trim();
+          if (payload === "[DONE]") break;
+          try {
+            const delta = JSON.parse(payload).choices?.[0]?.delta?.content;
+            if (delta) {
+              full += delta;
+              contentEl.innerHTML = marked.parse(full);
+              messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+          } catch {}
+        }
+      }
+    } catch {
+      full = "_Looks like my chat backend ghosted us. Classic infrastructure — works until it doesn't. Try again in a moment._";
+      contentEl.innerHTML = marked.parse(full);
+    }
+
+    contentEl.classList.remove("streaming");
+    chatHistory.push({ role: "assistant", content: full });
+    isStreaming = false;
+
+    if (count >= MAX_USER_MSGS) {
+      appendMsg("assistant", marked.parse("Alright, 20 questions — I think you know enough about me now. If you want more, my email is right there on this page. Seriously though, it was fun. Come back anytime... well, next session anytime."));
+      lockChat();
+    } else {
+      sendBtn.disabled = inputEl.value.trim() === "";
+    }
+  }
+})();

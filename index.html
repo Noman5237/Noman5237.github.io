@@ -45,6 +45,11 @@
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
+        <button class="sidebar-chat-trigger" id="sidebarChatBtn">
+          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+          <span>Talk to me</span>
+        </button>
+
       </div>
 
       <div class="sidebar-info_more">
@@ -218,6 +223,13 @@
           </ul>
 
         </section>
+
+        <div class="about-chat-hero">
+          <div class="about-chat-fake-input" id="aboutChatTrigger">
+            <span>&gt; ask me anything...</span>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+        </div>
 
         <!--
           - testimonials modal (required by script.js)
@@ -781,9 +793,30 @@
 
     </div>
 
+    <!-- ── Chat Modal ── -->
+    <div class="chat-modal" id="chatModal">
+      <div class="chat-modal-panel">
+        <div class="chat-modal-header">
+          <span class="chat-modal-title">// TALK TO NOMAN</span>
+          <button class="chat-modal-close" id="chatModalClose">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-assistant">
+            <div class="msg-content">Hi! I'm Noman. Feel free to ask me anything about my experience, skills, or projects.</div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chatInput" type="text" placeholder="> type your question..." maxlength="500" autocomplete="off" />
+          <button class="chat-send-btn" id="chatSend" disabled>SEND</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <script src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

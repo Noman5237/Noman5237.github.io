@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-chat-worker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "local": "node local-dev.mjs",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.100.0"
+  }
+}
