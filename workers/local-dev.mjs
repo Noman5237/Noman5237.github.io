@@ -91,7 +91,7 @@ const server = createServer(async (req, res) => {
     return;
   }
 
-  const DENIAL_RE = /\b(I didn'?t apply|I did not apply|I haven'?t applied|I have not applied|I never applied)\b/i;
+  const DENIAL_RE = /\b(I didn'?t apply|I did not apply|I haven'?t applied|I have not applied|I never applied|but I didn'?t|I'?m not sure.*apply|I didn'?t[.,!?])\b/i;
 
   async function callGroq(msgs, stream) {
     return fetch('https://api.groq.com/openai/v1/chat/completions', {
