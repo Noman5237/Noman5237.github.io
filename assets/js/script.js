@@ -202,6 +202,7 @@ canvas.id = "pixel-wipe";
 document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 const TILE = 14;
+const NOISE_COLORS = ["#0a0a14", "#e8eef8", "#0e78c2"];
 let isWiping = false;
 
 function resizeNoise() {
@@ -218,7 +219,7 @@ function drawNoise(density) {
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       if (Math.random() < density) {
-        ctx.fillStyle = Math.random() < 0.55 ? "#0a0a14" : "#e8eef8";
+        ctx.fillStyle = NOISE_COLORS[Math.floor(Math.random() * NOISE_COLORS.length)];
         ctx.fillRect(c * TILE, r * TILE, TILE, TILE);
       }
     }
