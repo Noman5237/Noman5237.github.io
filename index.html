@@ -5,31 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>Md Abdullah Al Noman — Platform Engineer</title>
 
-  <!--
-    - favicon
-  -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!--
-    - #MAIN
-  -->
 
   <main>
 
@@ -42,18 +27,21 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar.png" alt="Md Abdullah Al Noman" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
-
-          <p class="title">Web developer</p>
+          <h1 class="name" title="Md Abdullah Al Noman">Md Abdullah Al Noman</h1>
+          <p class="title">Senior Software Engineer</p>
+          <div style="text-align:center;margin-top:10px;">
+            <a href="./assets/mdAbdullahAlNoman.pdf" download class="resume-download-btn" style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--orange-yellow-crayola,#e8be5c);color:#1a1a2e;font-size:12px;font-weight:600;border-radius:8px;text-decoration:none;letter-spacing:0.5px;">
+              <ion-icon name="download-outline" style="font-size:14px;"></ion-icon> Download CV
+            </a>
+          </div>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -66,59 +54,33 @@
         <ul class="contacts-list">
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:anonyman637@gmail.com" class="contact-link">anonyman637@gmail.com</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+8801703798394" class="contact-link">+880-170-379-8394</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">June 23, 1982</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
-              <address>Sacramento, California, USA</address>
+              <address>Dhaka, Bangladesh</address>
             </div>
-
           </li>
 
         </ul>
@@ -128,20 +90,20 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://www.linkedin.com/in/noman5237/" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
+            <a href="https://github.com/Noman5237" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+            <a href="https://stackoverflow.com/users/10901858/noman" class="social-link" target="_blank">
+              <ion-icon name="logo-stackoverflow"></ion-icon>
             </a>
           </li>
 
@@ -150,9 +112,6 @@
       </div>
 
     </aside>
-
-
-
 
 
     <!--
@@ -166,11 +125,10 @@
       -->
 
       <nav class="navbar">
-
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>About</button>
           </li>
 
           <li class="navbar-item">
@@ -182,26 +140,18 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
         </ul>
-
       </nav>
-
-
-
 
 
       <!--
         - #ABOUT
       -->
 
-      <article class="about  active" data-page="about">
+      <article class="about active" data-page="about">
 
         <header>
           <h2 class="h2 article-title">About me</h2>
@@ -209,17 +159,16 @@
 
         <section class="about-text">
           <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
+            I'm a Senior Platform Engineer based in Dhaka, Bangladesh, specializing in cloud-native infrastructure,
+            DevOps automation, and internal developer platforms. I currently work at Brain Station 23, where I lead
+            platform engineering across fintech and banking products.
           </p>
 
           <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
+            I love building simple, scalable, and easy-to-operate systems. My work spans designing production-grade
+            Kubernetes clusters on AWS EKS, building GitOps pipelines with Flux v2, embedding DevSecOps practices,
+            and defining SLIs/SLOs to keep reliability commitments. I enjoy mentoring engineers, solving complex
+            infrastructure challenges, and enabling product teams to ship faster with less toil.
           </p>
         </section>
 
@@ -230,175 +179,59 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">What I do</h3>
 
           <ul class="service-list">
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-dev.svg" alt="platform icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
-
+                <h4 class="h4 service-item-title">Platform Engineering</h4>
                 <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
+                  Designing and operating internal developer platforms on Kubernetes that let product teams self-serve
+                  deployments and eliminate infrastructure bottlenecks.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                <img src="./assets/images/icon-app.svg" alt="cloud icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
+                <h4 class="h4 service-item-title">Cloud Infrastructure</h4>
                 <p class="service-item-text">
-                  High-quality development of sites at the professional level.
+                  Architecting production-grade AWS environments using CDK and Terraform — VPC, EKS, IAM, S3, CloudWatch
+                  — across multiple availability zones with HA and DR built in.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="devsecops icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-
+                <h4 class="h4 service-item-title">DevSecOps</h4>
                 <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                  Shifting security left with Trivy, Vault, Keycloak, and Boundary — while also building backend
+                  services and integrations in Java and Spring Boot.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                <img src="./assets/images/icon-photo.svg" alt="observability icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
+                <h4 class="h4 service-item-title">Observability & SRE</h4>
                 <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
+                  Building symptom-based alerting with OpenTelemetry, Grafana Loki, Tempo, and Prometheus. Defining
+                  SLIs and SLOs, managing error budgets, and running on-call incident response.
                 </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
               </div>
             </li>
 
@@ -406,106 +239,30 @@
 
         </section>
 
-
         <!--
-          - testimonials modal
+          - testimonials modal (required by script.js)
         -->
-
         <div class="modal-container" data-modal-container>
-
           <div class="overlay" data-overlay></div>
-
           <section class="testimonials-modal">
-
             <button class="modal-close-btn" data-modal-close-btn>
               <ion-icon name="close-outline"></ion-icon>
             </button>
-
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.png" alt="" width="80" data-modal-img>
               </figure>
-
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
-
             <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
+              <h4 class="h3 modal-title" data-modal-title></h4>
+              <time datetime=""></time>
+              <div data-modal-text><p></p></div>
             </div>
-
           </section>
-
         </div>
 
-
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
       </article>
-
-
-
 
 
       <!--
@@ -524,51 +281,34 @@
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
-            <h3 class="h3">Education</h3>
+            <h3 class="h3">Experience</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">University school of the arts</h4>
-
-              <span>2007 — 2008</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
+              <h4 class="h4 timeline-item-title">Senior Software Engineer I &mdash; Brain Station 23</h4>
+              <span>Aug 2024 — Present</span>
+              <ul class="timeline-text" style="padding-left: 18px; margin: 0;">
+                <li>Integrated mobile app CI/CD covering 95% of service pipelines across 15 projects (~500 services), and led DevSecOps adoption by embedding vulnerability scanning (Trivy, SonarQube) into pipelines, reducing security findings reaching production.</li>
+                <li>Owned on-call incident response for platform and infrastructure, leading L3 escalation and resolution across production environments while consolidating resources to contribute to 99% uptime.</li>
+                <li>Defined and tracked SLIs/SLOs for critical platform services, using error budgets to prioritize reliability work and balance feature delivery against stability commitments.</li>
+                <li>Drove toil reduction initiatives by identifying and automating repetitive operational tasks across teams, freeing engineering capacity for higher-value platform improvements.</li>
+                <li>Strengthened security posture by implementing RBAC policies for 100% of users and conducting DevSecOps vulnerability analysis across services to ensure compliance with internal and client security standards.</li>
+                <li>Drove pre-sales activities for multiple client engagements, delivering infrastructure cost estimations, cloud architecture proposals, and technical consulting; prototyped solutions in financial reconciliation, fraud detection, and AI-driven DevOps automation for stakeholder demonstrations.</li>
+                <li>Served as a technical leader and mentor on cloud-native best practices, establishing engineering standards and accelerating team onboarding across platform and DevOps disciplines.</li>
+              </ul>
             </li>
 
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">New york academy of art</h4>
-
-              <span>2006 — 2007</span>
-
-              <p class="timeline-text">
-                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
-                omnis..
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
-
-              <span>2002 — 2004</span>
-
-              <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
-              </p>
-
+              <h4 class="h4 timeline-item-title">Associate Software Engineer &mdash; Brain Station 23</h4>
+              <span>Nov 2021 — Jul 2024</span>
+              <ul class="timeline-text" style="padding-left: 18px; margin: 0;">
+                <li>Streamlining DevOps processes, achieving an 80% reduction in development and operations lifecycle time for Fintech DEV/UAT cluster.</li>
+                <li>Conducted analysis on application performance metrics by performing load testing, identifying bottlenecks that reduced latency by 20% after optimization.</li>
+                <li>Designed and developed event-driven microservices with Spring Boot integrations, streamlining data flow, scalability, and fault tolerance.</li>
+                <li>Researched and developed Hyperledger Fabric-based solutions, improving efficiency in supply chain ecosystems.</li>
+              </ul>
             </li>
 
           </ol>
@@ -581,52 +321,17 @@
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
-            <h3 class="h3">Experience</h3>
+            <h3 class="h3">Education</h3>
           </div>
 
           <ol class="timeline-list">
 
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Creative director</h4>
-
-              <span>2015 — Present</span>
-
+              <h4 class="h4 timeline-item-title">Islamic University of Technology</h4>
+              <span>Jan 2020 — Jul 2024</span>
               <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
+                B.Sc. in Software Engineering &mdash; CGPA: 3.57/4.00. Dhaka, Bangladesh.
               </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Art director</h4>
-
-              <span>2013 — 2015</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Web designer</h4>
-
-              <span>2010 — 2013</span>
-
-              <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
-
             </li>
 
           </ol>
@@ -640,55 +345,63 @@
           <ul class="skills-list content-card">
 
             <li class="skills-item">
-
               <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
+                <h5 class="h5">Kubernetes &amp; Cloud (AWS / GCP)</h5>
                 <data value="90">90%</data>
               </div>
-
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 90%;"></div>
               </div>
-
             </li>
 
             <li class="skills-item">
-
               <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
+                <h5 class="h5">CI/CD &amp; GitOps (Flux v2, Jenkins, Argo)</h5>
+                <data value="90">90%</data>
               </div>
-
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
+                <div class="skill-progress-fill" style="width: 90%;"></div>
               </div>
+            </li>
 
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Infrastructure as Code (CDK, Terraform)</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Observability &amp; SLO Management</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">DevSecOps (Vault, Keycloak, Trivy)</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Programming (Java, Python, Bash)</h5>
+                <data value="75">75%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
             </li>
 
           </ul>
@@ -696,9 +409,6 @@
         </section>
 
       </article>
-
-
-
 
 
       <!--
@@ -713,222 +423,140 @@
 
         <section class="projects">
 
-          <ul class="filter-list">
+          <ul class="project-detail-list">
 
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">Fintech Internal Developer Platform</h3>
+                  <span class="project-detail-role">Platform &amp; Operations Engineer</span>
+                </div>
+                <span class="project-detail-date">Oct 2023 &mdash; Present</span>
               </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <div class="project-detail-tools">
+                <span>K8S</span><span>Terraform</span><span>Argo</span><span>Fastlane</span>
+                <span>Buildpack</span><span>SonarQube</span><span>Trivy</span><span>Harbor</span>
+                <span>Boundary</span><span>Keycloak</span><span>Vault</span><span>JFrog</span><span>NGINX</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Designed and built an internal developer platform on Kubernetes with Cilium networking, enabling 15+ product teams to self-serve deployments and eliminating infrastructure bottlenecks across DEV/UAT environments.</li>
+                <li>Integrated Jenkins, Argo Workflows, Fastlane, Buildpack, Helm, and GitHub Actions to automate deployments across ~500 services, achieving an 80% reduction in delivery cycle time and eliminating toil from manual release processes.</li>
+                <li>Established platform-wide golden paths: 100% PR-based code quality gates (Gitea + SonarQube), automated container vulnerability scanning (Trivy + Harbor), and symptom-based alerting with OpenTelemetry, Grafana Loki, Tempo, and Prometheus.</li>
+                <li>Secured all services with zero-standing-credentials using HashiCorp Vault for dynamic secrets, Keycloak for SSO, and Boundary for RBAC-enforced infrastructure access, enforcing least-privilege across the platform.</li>
+              </ul>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">
+                    <a href="https://app.zooberpay.com/" target="_blank" class="project-detail-link">ZooberPay <ion-icon name="open-outline"></ion-icon></a>
+                  </h3>
+                  <span class="project-detail-role">DevOps Engineer</span>
+                </div>
+                <span class="project-detail-date">Mar 2026 &mdash; Present</span>
+              </div>
+              <div class="project-detail-tools">
+                <span>AWS</span><span>Flux</span><span>Karpenter</span><span>Patroni</span>
+                <span>Strimzi Kafka</span><span>Redis</span><span>OpenTelemetry</span>
+                <span>APISIX</span><span>Spring Boot</span><span>Java</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Architected a production-grade fintech platform on AWS EKS across 3 AZs using AWS CDK (TypeScript) — 8 independently deployable stacks, 15+ reusable constructs — operated via Flux v2 GitOps managing 17 app workloads with per-component Kustomizations and tight prune scopes.</li>
+                <li>Deployed self-managed HA data tier using Patroni PostgreSQL, Strimzi Kafka, and Redis Failover across 3 AZs with gp3 StorageClasses, achieving sub-minute RPO via pgBackRest WAL archiving to S3 with cross-region replication; validated through controlled failure injection and restore drills.</li>
+                <li>Defined SLIs and SLOs for payment platform services, using error budgets to govern release velocity and prioritize resilience improvements over feature work during budget exhaustion.</li>
+                <li>Developed and integrated a bKash payout system for ZooberPay, enabling seamless mobile financial service disbursements for platform users.</li>
+                <li>Enforced infrastructure compliance using AWS CDK automated provisioning guardrails and CloudTrail, maintaining 100% audit trail coverage across all 8 stacks and AWS resources.</li>
+                <li>Built symptom-based alerting via OpenTelemetry Collector shipping to CloudWatch Logs (6-month retention) with 5 EKS control-plane log streams, reducing alert noise and improving on-call signal fidelity.</li>
+              </ul>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">
+                    <a href="https://revoglobal.com/#brain" target="_blank" class="project-detail-link">Revo Global <ion-icon name="open-outline"></ion-icon></a>
+                  </h3>
+                  <span class="project-detail-role">DevOps Engineer</span>
+                </div>
+                <span class="project-detail-date">Nov 2025 &mdash; Present</span>
+              </div>
+              <div class="project-detail-tools">
+                <span>Python</span><span>Playwright</span><span>Java</span><span>Spring Boot</span><span>SQS</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Architected a cloud-native browser automation platform using Python Playwright, containerized with Docker (2GB shared memory, VNC/noVNC remote viewing), and deployed as Kubernetes Jobs with persistent browser profiles to scrape deep web data sources at scale.</li>
+                <li>Built a Java Spring Boot backend exposing scraped data through REST APIs, dynamically orchestrating Kubernetes Jobs via Mustache-templated manifests and processing events across 6 AWS SQS FIFO queues with exponential backoff retry, Dead Letter Queue alerting, and 3-attempt fault tolerance.</li>
+                <li>Implemented a manual interruption and monitoring system integrated through Linux window managers and VNC, enabling real-time operator oversight and controlled intervention in automated browser sessions.</li>
+                <li>Secured the platform with HashiCorp Vault and integrated Keycloak v26 for multi-tenant SSO with a multi-layer RBAC hierarchy, caching authorization decisions in Redis for sub-millisecond access control.</li>
+                <li>Provisioned full AWS infrastructure using CDK v2 (TypeScript) across UAT and Production environments, deploying a Kubernetes cluster with Cilium CNI and OpenTelemetry observability pipeline.</li>
+              </ul>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">
+                    <a href="https://abdirect.abbl.com/welcome-page" target="_blank" class="project-detail-link">AB Bank PLC Internet Banking <ion-icon name="open-outline"></ion-icon></a>
+                  </h3>
+                  <span class="project-detail-role">DevOps Engineer</span>
+                </div>
+                <span class="project-detail-date">Oct 2024 &mdash; Present</span>
+              </div>
+              <div class="project-detail-tools">
+                <span>Huawei Cloud</span><span>Bash</span><span>Rundeck</span><span>Kafka</span>
+                <span>MinIO</span><span>Redis</span><span>Jenkins</span><span>OpenTelemetry</span>
+                <span>Grafana Stack</span><span>Playwright</span><span>Spock</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Engineered and deployed 2 environments (UAT and Production) including servers, networks, load balancers, and WAF on Robi Huawei Cloud, supporting a PLC-grade internet banking platform.</li>
+                <li>Eliminated manual server maintenance by implementing full automation via Bash scripts and Rundeck, reducing synchronization task execution time from hours to minutes.</li>
+                <li>Deployed Kafka Raft, MinIO, Redis, and application services in 3-node distributed mode with end-to-end TLS on bare-metal servers, achieving zero single points of failure.</li>
+                <li>Developed solutions to integrate reconciliation systems with MFS platforms, streamlining financial data synchronization across banking and mobile financial services.</li>
+                <li>Developed integration tests for regression using Playwright and Spock, ensuring end-to-end reliability across critical banking workflows.</li>
+                <li>Optimized the event messaging architecture, improving system throughput and reducing processing latency by 50%.</li>
+              </ul>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">
+                    <a href="https://play.google.com/store/apps/details?id=com.cbl.remittance&hl=en" target="_blank" class="project-detail-link">City Remittance <ion-icon name="open-outline"></ion-icon></a>
+                  </h3>
+                  <span class="project-detail-role">DevOps Engineer</span>
+                </div>
+                <span class="project-detail-date">Jun 2023 &mdash; Present</span>
+              </div>
+              <div class="project-detail-tools">
+                <span>Spring Boot</span><span>K8S</span><span>Calico</span><span>Kafka</span>
+                <span>Redis</span><span>MinIO</span><span>Prometheus</span><span>Loki</span><span>NGINX</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Deployed and maintained the application across 2 clusters (UAT and Production) providing L3 support, maintaining 99%+ uptime through proactive issue tracking and resolution.</li>
+                <li>Validated system resilience through continuous load, integration, and chaos testing cycles — injecting failures to confirm observability, failover, and HA commitments before production impact.</li>
+                <li>Drove platform adoption by implementing an agent and customer referral reward system, increasing user engagement and improving retention metrics.</li>
+              </ul>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+            <li class="project-detail-card">
+              <div class="project-detail-header">
+                <div>
+                  <h3 class="project-detail-title">
+                    <a href="https://www.rokomari.com/" target="_blank" class="project-detail-link">Rokomari.com <ion-icon name="open-outline"></ion-icon></a>
+                  </h3>
+                  <span class="project-detail-role">Operations Engineer</span>
+                </div>
+                <span class="project-detail-date">Dec 2024 &mdash; Feb 2025</span>
+              </div>
+              <div class="project-detail-tools">
+                <span>NGINX</span><span>ModSecurity</span><span>OpenTelemetry</span>
+                <span>Spring Framework</span><span>Prometheus</span><span>Loki</span><span>Tempo</span><span>Grafana</span>
+              </div>
+              <ul class="project-detail-bullets">
+                <li>Integrated NGINX and ModSecurity WAF with custom rule sets; built symptom-based Grafana dashboards and alerts that surfaced security anomalies before outages, reducing detection and triage time for production traffic incidents.</li>
+                <li>Deployed a unified observability stack with OpenTelemetry, Grafana Loki, Tempo, and Prometheus covering 8+ services (Redis, MongoDB, RabbitMQ, and application tiers), consolidating distributed traces, logs, and metrics into a single pane and reducing average troubleshooting time by over 50%.</li>
+              </ul>
             </li>
 
           </ul>
@@ -936,201 +564,6 @@
         </section>
 
       </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
 
 
       <!--
@@ -1146,7 +579,7 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8305338427!2d90.27923710429689!3d23.780573031992606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
@@ -1159,7 +592,6 @@
 
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
               <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
 
@@ -1180,19 +612,7 @@
 
   </main>
 
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

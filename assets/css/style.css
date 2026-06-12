@@ -128,6 +128,7 @@
 a { text-decoration: none; }
 
 li { list-style: none; }
+.timeline-text li { list-style: disc; }
 
 img, ion-icon, a, button, time, span { display: block; }
 
@@ -1812,8 +1813,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .main-content {
-    min-width: 75%;
-    width: 75%;
+    min-width: 68%;
+    width: 68%;
     margin: 0;
   }
 
@@ -1878,5 +1879,111 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
+
+
+
+  /**
+   * PROJECT DETAIL CARDS
+   */
+
+  .project-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .project-detail-card {
+    background: var(--border-gradient-onyx);
+    background: var(--bg-gradient-jet);
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+
+  .project-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .project-detail-title {
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    color: var(--white-2);
+    margin-bottom: 4px;
+  }
+
+  .project-detail-link {
+    color: var(--orange-yellow-crayola);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .project-detail-link ion-icon {
+    font-size: 13px;
+  }
+
+  .project-detail-link:hover {
+    text-decoration: underline;
+  }
+
+  .project-detail-role {
+    font-size: var(--fs-8);
+    color: var(--orange-yellow-crayola);
+    font-weight: var(--fw-500);
+    letter-spacing: 0.5px;
+  }
+
+  .project-detail-date {
+    font-size: var(--fs-8);
+    color: var(--light-gray-70);
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .project-detail-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .project-detail-tools span {
+    background: var(--onyx);
+    color: var(--light-gray-70);
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid hsl(0, 0%, 22%);
+    font-weight: var(--fw-500);
+    letter-spacing: 0.3px;
+  }
+
+  .project-detail-bullets {
+    padding-left: 18px;
+    margin: 0;
+    list-style: disc;
+  }
+
+  .project-detail-bullets li {
+    list-style: disc;
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    line-height: 1.65;
+    margin-bottom: 7px;
+  }
+
+  .project-detail-bullets li:last-child {
+    margin-bottom: 0;
+  }
 
 }
