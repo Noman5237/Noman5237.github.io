@@ -2,3 +2,5 @@ node_modules/
 dist/
 workers/node_modules/
 workers/.dev.vars
+workers/.wrangler/
+workers/wrangler.toml.bak
