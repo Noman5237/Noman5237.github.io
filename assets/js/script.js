@@ -346,7 +346,9 @@ chatModal.addEventListener("click", e => { if (e.target === chatModal) closeChat
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeChatModal(); });
 
 // ── Chat Widget ──
-const CHAT_WORKER_URL = "https://portfolio-chat.anonyman637.workers.dev";
+const CHAT_WORKER_URL = location.hostname === 'localhost'
+  ? 'http://localhost:8788/chat'
+  : 'https://portfolio-chat.anonyman637.workers.dev';
 
 (function initChat() {
   const messagesEl = document.getElementById("chatMessages");
