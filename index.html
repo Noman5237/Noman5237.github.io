@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,8 +33,8 @@
         <div class="info-content">
           <h1 class="name" title="Md Abdullah Al Noman">Md Abdullah Al Noman</h1>
           <p class="title">Senior Software Engineer</p>
-          <div style="text-align:center;margin-top:10px;">
-            <a href="./assets/mdAbdullahAlNoman.pdf" download class="resume-download-btn" style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--orange-yellow-crayola,#e8be5c);color:#1a1a2e;font-size:12px;font-weight:600;border-radius:8px;text-decoration:none;letter-spacing:0.5px;">
+          <div class="resume-download-wrapper">
+            <a href="./assets/mdAbdullahAlNoman.pdf" download class="resume-download-btn" style="display:inline-flex;align-items:center;gap:6px;padding:7px 14px;font-size:12px;font-weight:600;border-radius:8px;text-decoration:none;letter-spacing:0.5px;">
               <ion-icon name="download-outline" style="font-size:14px;"></ion-icon> Download CV
             </a>
           </div>
@@ -85,30 +85,6 @@
 
         </ul>
 
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/noman5237/" class="social-link" target="_blank">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/Noman5237" class="social-link" target="_blank">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://stackoverflow.com/users/10901858/noman" class="social-link" target="_blank">
-              <ion-icon name="logo-stackoverflow"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
       </div>
 
     </aside>
@@ -132,11 +108,11 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link>Experience</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link>Projects</button>
           </li>
 
           <li class="navbar-item">
@@ -269,7 +245,7 @@
         - #RESUME
       -->
 
-      <article class="resume" data-page="resume">
+      <article class="resume" data-page="experience">
 
         <header>
           <h2 class="h2 article-title">Resume</h2>
@@ -415,7 +391,7 @@
         - #PORTFOLIO
       -->
 
-      <article class="portfolio" data-page="portfolio">
+      <article class="portfolio" data-page="projects">
 
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
@@ -576,33 +552,65 @@
           <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8305338427!2d90.27923710429689!3d23.780573031992606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
+        <section class="contact-social">
 
-        <section class="contact-form">
+          <p class="contact-social-text">
+            Feel free to reach out via email or connect with me on any of the platforms below.
+          </p>
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <ul class="contact-social-list">
 
-          <form action="#" class="form" data-form>
+            <li class="contact-social-item">
+              <a href="mailto:anonyman637@gmail.com?subject=Opportunity%20%2F%20Collaboration&body=Hi%20Noman%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A%5BYour%20message%20here%5D%0A%0ARegards%2C%0A%5BYour%20Name%5D" class="contact-social-card">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div>
+                  <h4 class="contact-social-platform">Email</h4>
+                  <span>anonyman637@gmail.com</span>
+                </div>
+              </a>
+            </li>
 
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
+            <li class="contact-social-item">
+              <a href="https://www.linkedin.com/in/noman5237/" target="_blank" class="contact-social-card">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                <div>
+                  <h4 class="contact-social-platform">LinkedIn</h4>
+                  <span>linkedin.com/in/noman5237</span>
+                </div>
+              </a>
+            </li>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <li class="contact-social-item">
+              <a href="https://github.com/Noman5237" target="_blank" class="contact-social-card">
+                <ion-icon name="logo-github"></ion-icon>
+                <div>
+                  <h4 class="contact-social-platform">GitHub</h4>
+                  <span>github.com/Noman5237</span>
+                </div>
+              </a>
+            </li>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+            <li class="contact-social-item">
+              <a href="https://stackoverflow.com/users/10901858/noman" target="_blank" class="contact-social-card">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+                <div>
+                  <h4 class="contact-social-platform">Stack Overflow</h4>
+                  <span>stackoverflow.com/users/10901858</span>
+                </div>
+              </a>
+            </li>
 
-          </form>
+            <li class="contact-social-item">
+              <a href="https://wa.me/8801703798394" target="_blank" class="contact-social-card">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <div>
+                  <h4 class="contact-social-platform">WhatsApp</h4>
+                  <span>+880-170-379-8394</span>
+                </div>
+              </a>
+            </li>
+
+          </ul>
 
         </section>
 
