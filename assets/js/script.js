@@ -196,39 +196,65 @@ function resetContactCards() {
   });
 }
 
-// ── effect 10: pixel wipe ──
-const PW_COLS = 8, PW_ROWS = 5, PW_STAGGER = 22;
-const wipeEl = document.createElement("div");
-wipeEl.id = "pixel-wipe";
-document.body.appendChild(wipeEl);
-for (let r = 0; r < PW_ROWS; r++) {
-  for (let c = 0; c < PW_COLS; c++) {
-    const b = document.createElement("div");
-    b.className = "pw-block";
-    b.dataset.d = r + c;
-    wipeEl.appendChild(b);
+// ── effect 10: static noise wipe ──
+const canvas = document.createElement("canvas");
+canvas.id = "pixel-wipe";
+document.body.appendChild(canvas);
+const ctx = canvas.getContext("2d");
+const TILE = 14;
+let isWiping = false;
+
+function resizeNoise() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeNoise();
+window.addEventListener("resize", resizeNoise);
+
+function drawNoise(density) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const cols = Math.ceil(canvas.width / TILE);
+  const rows = Math.ceil(canvas.height / TILE);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (Math.random() < density) {
+        ctx.fillStyle = Math.random() < 0.55 ? "#0a0a14" : "#e8eef8";
+        ctx.fillRect(c * TILE, r * TILE, TILE, TILE);
+      }
+    }
   }
 }
-const pwBlocks = wipeEl.querySelectorAll(".pw-block");
-const pwMaxD = (PW_ROWS - 1) + (PW_COLS - 1);
-const pwDuration = pwMaxD * PW_STAGGER + 50;
-let isWiping = false;
+
+const PHASE_MS = 320;
+let callbackFired = false;
 
 function pixelWipeTransition(callback) {
   if (isWiping) return;
   isWiping = true;
-  pwBlocks.forEach(b => {
-    b.style.transitionDelay = (parseInt(b.dataset.d) * PW_STAGGER) + "ms";
-    b.classList.add("pw-in");
-  });
-  setTimeout(() => {
-    callback();
-    pwBlocks.forEach(b => {
-      b.style.transitionDelay = ((pwMaxD - parseInt(b.dataset.d)) * PW_STAGGER) + "ms";
-      b.classList.remove("pw-in");
-    });
-    setTimeout(() => { isWiping = false; }, pwDuration);
-  }, pwDuration);
+  callbackFired = false;
+  canvas.style.display = "block";
+  const t0 = performance.now();
+
+  function step(now) {
+    const t = now - t0;
+    if (t < PHASE_MS) {
+      drawNoise(t / PHASE_MS);
+      requestAnimationFrame(step);
+    } else {
+      if (!callbackFired) { drawNoise(1); callback(); callbackFired = true; }
+      const t2 = t - PHASE_MS;
+      if (t2 < PHASE_MS) {
+        drawNoise(Math.max(0, 1 - t2 / PHASE_MS));
+        requestAnimationFrame(step);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.style.display = "none";
+        isWiping = false;
+      }
+    }
+  }
+
+  requestAnimationFrame(step);
 }
 
 // ── effect 8: scroll reveals on about page ──

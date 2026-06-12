@@ -2391,25 +2391,14 @@ article:hover {
   animation: tagPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-/* ── effect 10: pixel wipe ── */
+/* ── effect 10: static noise wipe ── */
 #pixel-wipe {
   position: fixed;
   inset: 0;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(5, 1fr);
   pointer-events: none;
   z-index: 9999;
-}
-
-.pw-block {
-  background: var(--pixel-blue);
-  opacity: 0;
-  transition: opacity 0ms;
-}
-
-.pw-block.pw-in {
-  opacity: 1;
+  display: none;
+  image-rendering: pixelated;
 }
 
 /* ── effect 4: service icon bounce on hover ── */
