@@ -76,10 +76,11 @@ const server = createServer(async (req, res) => {
         temperature: 0,
       }),
     });
+    console.log(`[classifier] status=${classRes.status}`);
     const classData = await classRes.json();
     const classText = classData.choices?.[0]?.message?.content?.trim() || '{}';
     isTask = JSON.parse(classText).type === 'task';
-  } catch {}
+  } catch (e) { console.log(`[classifier] error: ${e.message}`); }
 
   if (isTask) {
     const refusal = "Oh nice, so now this is a coding service? I must have missed the memo. I'm here to talk about my work — not write yours. Ask me something about my actual experience instead.";
@@ -97,7 +98,7 @@ const server = createServer(async (req, res) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'llama-3.3-70b-versatile',
+      model: 'meta-llama/llama-4-scout-17b-16e-instruct',
       messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
       stream: true,
       max_tokens: 1024,
@@ -105,6 +106,7 @@ const server = createServer(async (req, res) => {
     }),
   });
 
+  console.log(`[upstream] status=${upstream.status}`);
   if (!upstream.ok) {
     const errMsg = upstream.status === 429
       ? "Whoa, slow down — even I need a breather. Too many questions at once. Try again in a minute."

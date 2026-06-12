@@ -79,7 +79,7 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: "meta-llama/llama-4-scout-17b-16e-instruct",
           messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
           stream: true,
           max_tokens: 1024,
